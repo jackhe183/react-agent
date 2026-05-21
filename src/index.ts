@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import { runAgent } from './loop.ts';
 import type { TraceStep } from './types.ts';
 

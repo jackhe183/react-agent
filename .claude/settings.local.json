@@ -14,7 +14,9 @@
       "Bash(bun -e \"const { bash } = await import\\('./src/tools/bash.ts'\\); bash\\('node -e \\\\\"console.log\\(123\\)\\\\\"'\\).then\\(r => console.log\\('Result:', r\\)\\);\")",
       "Bash(bun -e \"import { TOOLKIT } from './src/tools/mod.ts'; console.log\\('Keys:', Object.keys\\(TOOLKIT\\)\\);\")",
       "Bash(bun -e ' *)",
-      "Bash(git restore *)"
+      "Bash(git restore *)",
+      "Bash(bun remove *)",
+      "Bash(rm -rf node_modules dotenv*)"
     ]
   }
 }

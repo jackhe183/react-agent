@@ -41,13 +41,9 @@ curl -fsSL https://bun.sh/install | bash
 powershell -c "irm bun.sh/install.ps1 | iex"
 ```
 
-### 2. 安装依赖
+### 2. 配置环境变量
 
-```bash
-bun install
-```
-
-### 3. 配置环境变量
+Bun 会自动加载 `.env` 文件，无需额外安装 dotenv。
 
 编辑 `.env` 文件：
 
@@ -56,7 +52,7 @@ DEEPSEEK_API_KEY=your_api_key_here
 DEEPSEEK_BASE=https://api.deepseek.com/v1
 ```
 
-### 4. 运行
+### 3. 运行
 
 ```bash
 bun run src/index.ts "<your question>"

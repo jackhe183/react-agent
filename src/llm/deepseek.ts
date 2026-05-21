@@ -1,16 +1,18 @@
 import type { ChatMessage } from '../types.ts';
 
-const API_URL = `${process.env.DEEPSEEK_BASE}/chat/completions`;
-const MODEL = 'deepseek-v4-pro';
+const MODEL = 'deepseek-chat';
 
 export async function callDeepSeek(messages: ChatMessage[]): Promise<string> {
-  const apiKey = process.env.DEEPSEEK_API_KEY;
+  const apiKey = Bun.env.DEEPSEEK_API_KEY;
 
   if (!apiKey) {
     throw new Error('DEEPSEEK_API_KEY environment variable is not set');
   }
 
-  const response = await fetch(API_URL, {
+  const baseUrl = Bun.env.DEEPSEEK_BASE || 'https://api.deepseek.com/v1';
+  const apiUrl = `${baseUrl}/chat/completions`;
+
+  const response = await fetch(apiUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -5,8 +5,5 @@
   "scripts": {
     "start": "bun run src/index.ts",
     "dev": "bun --watch run src/index.ts"
-  },
-  "devDependencies": {
-    "dotenv": "^16.4.5"
   }
 }
