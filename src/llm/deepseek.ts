@@ -1,7 +1,7 @@
 import type { ChatMessage } from '../types.ts';
 
 const API_URL = `${process.env.DEEPSEEK_BASE}/chat/completions`;
-const MODEL = 'deepseek-chat';
+const MODEL = 'deepseek-v4-pro';
 
 export async function callDeepSeek(messages: ChatMessage[]): Promise<string> {
   const apiKey = process.env.DEEPSEEK_API_KEY;
