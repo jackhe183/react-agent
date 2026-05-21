@@ -16,7 +16,8 @@
       "Bash(bun -e ' *)",
       "Bash(git restore *)",
       "Bash(bun remove *)",
-      "Bash(rm -rf node_modules dotenv*)"
+      "Bash(rm -rf node_modules dotenv*)",
+      "Bash(curl -s -X POST http://localhost:3000/chat -H \"Content-Type: application/json\" -d '{\"message\":\"现在几点了？\"}')"
     ]
   }
 }
