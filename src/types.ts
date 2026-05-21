@@ -35,6 +35,7 @@ export type TraceStep = {
   };
   observation?: string;
   error?: string;
+  final?: string;
 };
 
 // 运行结果

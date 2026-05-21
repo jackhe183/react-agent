@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bun install *)",
+      "Bash(bun run *)",
+      "Bash(bun -e \"const { bash } = await import\\('./src/tools/bash.ts'\\); bash\\('echo hello'\\).then\\(r => console.log\\('Result:', r\\)\\);\")",
+      "Bash(git init *)",
+      "Bash(curl -s https://api.github.com/user)",
+      "Bash(git add *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(bun -e \"const { bash } = await import\\('./src/tools/bash.ts'\\); bash\\('node -e \\\\\"console.log\\(123\\)\\\\\"'\\).then\\(r => console.log\\('Result:', r\\)\\);\")",
+      "Bash(bun -e \"import { TOOLKIT } from './src/tools/mod.ts'; console.log\\('Keys:', Object.keys\\(TOOLKIT\\)\\);\")",
+      "Bash(bun -e ' *)",
+      "Bash(git restore *)"
+    ]
+  }
+}

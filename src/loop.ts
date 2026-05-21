@@ -6,7 +6,10 @@ import { TOOLKIT } from './tools/mod.ts';
 
 const MAX_STEPS = 10;
 
-export async function runAgent(question: string): Promise<RunResult> {
+export async function runAgent(
+  question: string,
+  onStep?: (step: TraceStep) => void
+): Promise<RunResult> {
   const messages: ChatMessage[] = [
     { role: 'system', content: SYSTEM_PROMPT },
     { role: 'user', content: question },
@@ -28,6 +31,8 @@ export async function runAgent(question: string): Promise<RunResult> {
     // 如果有 final 标签，直接返回
     if (parsed.final) {
       trace.push(traceStep);
+      traceStep.final = parsed.final;
+      onStep?.(traceStep);
       return { final: parsed.final, trace };
     }
 
@@ -49,6 +54,7 @@ export async function runAgent(question: string): Promise<RunResult> {
           content: `<observation>Error: ${errorMsg}</observation>`,
         });
         trace.push(traceStep);
+        onStep?.(traceStep);
         continue;
       }
 
@@ -64,11 +70,14 @@ export async function runAgent(question: string): Promise<RunResult> {
         });
       }
       trace.push(traceStep);
+      onStep?.(traceStep);
       continue;
     }
 
     // 未生成有效输出，终止循环
+    traceStep.error = 'No valid output';
     trace.push(traceStep);
+    onStep?.(traceStep);
     break;
   }
 
